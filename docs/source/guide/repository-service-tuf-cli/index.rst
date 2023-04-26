@@ -24,7 +24,6 @@ Using pip:
 
     ╭─ Options ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
     │ --config   -c  TEXT  Repository Service for TUF config file                                                                      │
-    │ --no-auth            Skips the use of RSTUF built-in authentication.                                                             │
     │ --version            Show the version and exit.                                                                                  │
     │ --help     -h        Show this message and exit.                                                                                 │
     ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
@@ -33,10 +32,10 @@ Using pip:
     │ key                        Cryptographic Key Commands                                                                            │
     ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 
-.. rstuf-cli-admin
-
 Administration (``admin``)
 ==========================
+
+.. rstuf-cli-admin
 
 It executes administrative commands to the Repository Service for TUF.
 
@@ -58,10 +57,11 @@ It executes administrative commands to the Repository Service for TUF.
     │ token                           Token Management.                                                                                │
     ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 
-.. rstuf-cli-admin-login
 
 Login to Server (``login``)
 ---------------------------
+
+.. rstuf-cli-admin-login
 
 This command will log in to Repository Service for TUF and give you a token to run other commands
 such as Ceremony, Token Generation, etc.
@@ -86,10 +86,11 @@ such as Ceremony, Token Generation, etc.
 
     Login successful.
 
-.. rstuf-cli-admin-ceremony
 
 Ceremony (``ceremony``)
 -----------------------
+
+.. rstuf-cli-admin-ceremony
 
 The Repository Service for TUF Metadata uses the following Roles: ``root``, ``timestamp``,
 ``snapshot``, ``targets``, and ``bins`` to build the Repository
@@ -375,11 +376,10 @@ Using another computer with access to ``repository-service-tuf-api``
   2.  Install ``repository-service-tuf``
   3.  Run ``rstuf admin ceremony -b -u [-f filename]``
 
-
-.. rstuf-cli-admin-token
-
 Token (``token``)
 -----------------
+
+.. rstuf-cli-admin-token
 
 Token Management
 
@@ -399,10 +399,10 @@ Token Management
     │  inspect   Show token information details.                                                                             │
     ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 
-.. rstuf-cli-admin-token-generate
-
 ``generate``
 ............
+
+.. rstuf-cli-admin-token-generate
 
 Generate tokens to use in integrations.
 
@@ -438,10 +438,10 @@ Example of usage:
 This token can be used with GitHub Secrets, Jenkins Secrets, CircleCI, shell
 script, etc
 
-.. rstuf-cli-admin-token-inspect
-
 ``inspect``
 ...........
+
+.. rstuf-cli-admin-token-inspect
 
 Show token detailed information.
 
@@ -470,10 +470,10 @@ Show token detailed information.
     }
 
 
-.. rstuf-cli-admin-import-targets
-
 Import Targets (``import-targets``)
 -----------------------------------
+
+.. rstuf-cli-admin-import-targets
 
 This feature imports a large number of targets directly to RSTUF Database.
 RSTUF doesn't recommend using this feature for regular flow, but in case you're
@@ -546,10 +546,10 @@ See the below CSV file example:
     Import status: Finished.
 
 
-.. rstuf-cli-key
-
 Key Management (``key``)
 ========================
+
+.. rstuf-cli-key
 
 It executes commands related to cryptographic key management and may be used
 for managing keys in the Repository Service for TUF.
@@ -569,11 +569,10 @@ for managing keys in the Repository Service for TUF.
     │ generate                        Generate cryptographic keys using the `securesystemslib` library                                 │
     ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 
-
-.. rstuf-cli-key-generate
-
 Key Generation (``generate``)
 -----------------------------
+
+.. rstuf-cli-key-generate
 
 This command will generate cryptographic keys using the ``securesystemslib`` library.
 The user is requested to provide:

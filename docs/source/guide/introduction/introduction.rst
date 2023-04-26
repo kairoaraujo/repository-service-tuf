@@ -1,43 +1,43 @@
-============
+############
 Introduction
-============
-
-Repository Service for TUF components
-=====================================
-
-The Repository Service for TUF (RSTUF) consists of two primary components,
-``repository-service-tuf-api`` and ``repository-service-tuf-worker``.
-We also provide a Command Line Interface (CLI) for interacting with RSTUF,
-``repository-service-tuf-cli``.
-
-`Each of the RSTUF components is represented in blue in this diagram of a
-typical service deployment:`
-
-.. image:: /_static/2_1_rstuf.png
+############
 
 Repository Service for TUF
---------------------------
+##########################
 
-Repository Service for TUF implements the microservices pattern for scalability
-and reliability in different deployment scenarios.
+RSTUF Components
+================
 
-The ``repository-service-tuf-api``, and ``repository-service-tuf-worker``
-services are provided as Docker Images.
+Repository Service for TUF (RSTUF) is a combination of micro-services provided
+as containers:
 
-``repository-service-tuf-api`` is the API Service, and the
-``repository-service-tuf-worker`` is a worker that manages TUF Metadata.
+ * :ref:`guide/repository-service-tuf-api/index:Repository Service for TUF API`
+   (RSTUF API ``repository-service-tuf-api``)
+ * :ref:`guide/repository-service-tuf-worker/index:Repository Service for TUF Worker`
+   (RSTUF Worker ``repository-service-tuf-worker``)
 
-The Repository Service for TUF requires a Broker (``RabbitMQ`` or ``Redis``)
-to be used by the RSTUF services (``repository-service-tuf-api``,
-``repository-service-tuf-worker``).
+Repository Service for TUF (RSTUF) also provides a Command Line Interface tool
+to manage your RSTUF deployment.
 
-.. note::
-    TUF Metadata Storage and Key Storage (Key Vault) use the filesystem for
-    storage. To use persistent data and share this volume, Docker Volumes
-    are supported.
+ * :ref:`guide/repository-service-tuf-cli/index:Repository Service for TUF CLI`
+   (RSTUF CLI ``repository-service-tuf-cli``)
 
-    We plan to add support for SaaS Services such as S3 and Cloud Key Vaults
-    in the future milestones.
+Repository Service for TUF API (RSTUF API)
+------------------------------------------
+
+The RSTUF API servers an HTTP REST API for integration and administration.
+
+It publishes new tasks to the message queue/broker and uses the Redis server
+to get information about the task status and check the RSTUF settings.
+
+Repository Service for TUF Worker (RSTUF Worker)
+------------------------------------------------
+
+The RSTUF Worker is a task consumer from the message queue/broker. It processes
+the tasks updating TUF metadata using the Postgres database.
+During it operations uses the online key from the Key Vault backend service,
+publishes the TUF metadata in the Storage backend service and uses the
+Redis server for TUF settings and store the task results.
 
 Repository Service for TUF Command Line
 ---------------------------------------
@@ -50,8 +50,9 @@ The CLI supports the initial setup, termed a ceremony, where the first repositor
 metadata are signed and the service is configured, generating tokens to be used
 by integration (i.e., CI/CD tools).
 
-The Repository Metadata
-=======================
+
+The TUF Metadata
+================
 
 Repository Service for TUF (RSTUF) secures downloads with signed repository
 metadata using a design based on Python's `PEP 458 – Secure PyPI downloads
@@ -73,39 +74,9 @@ in cloud environments.
 
 Check out the :ref:`how to deploy <guide/deployment/index:Deployment>`.
 
-Below is a diagram of Repository Service for TUF in a building environment.
-
-.. image:: /_static/2_2_rstuf.png
-
 .. note::
 
     If you provide users with download or update tools, you need to add
     functionality to your tools to check the signed metadata.
 
 
-Project background and motivation
-=================================
-
-`TUF`_ provides a flexible framework and specification that developers can
-adopt and an excellent Python Library (`python-tuf`_) that provides two APIs
-for low-level Metadata management and client implementation.
-
-Implementing `TUF`_ requires sufficient knowledge of `TUF`_ to design how to
-integrate the framework into your repository and hours of engineering work to
-implement.
-
-RSTUF was born as a consequence of working on the implementation of `PEP 458
-<https://peps.python.org/pep-0458/>`_ in the `Warehouse
-<https://warehouse.pypa.io>`_ project which powers the `Python Package Index
-(PyPI) <https://pypi.org>`_.
-
-Due to our experience with the complexity and fragility of deep integration into
-an intricate platform, we began designing how to implement a reusable TUF platform
-that is flexible to integrate into different flows and infrastructures.
-
-Repository Service for TUF's goal is to be an easy-to-use tool for Developers,
-DevOps, and DevOpsSec teams working on the delivery process.
-
-
-.. _TUF: https://theupdateframework.io
-.. _python-tuf: https://pypi.org/project/tuf/

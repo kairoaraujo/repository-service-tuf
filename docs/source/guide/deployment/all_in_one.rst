@@ -27,7 +27,7 @@ Software and tools
 Key management
 --------------
 
-As introduced before by :ref:`guide/deployment/index:RSTUF and TUF key management`,
+As introduced before by :ref:`guide/introduction/processes:RSTUF and TUF key management`,
 this deployment requires an online key. You need to make sure
 you have generated it and you can use it.
 
@@ -150,8 +150,8 @@ Steps
   TUF metadata and RSTUF settings.
 
   References:
-    * :ref:`guide/deployment/index:RSTUF and TUF key management`,
-    * :ref:`guide/deployment/index:TUF Metadata signing Ceremony`
+    * :ref:`guide/introduction/processes:RSTUF and TUF key management`,
+    * :ref:`guide/introduction/processes:TUF Metadata signing Ceremony`
 
   Install the RSTUF CLI, using pip
 

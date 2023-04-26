@@ -108,17 +108,6 @@ Available types:
     - Requires variable ``RSTUF_LOCAL_STORAGE_BACKEND_PATH``
       - Define the directory where the data will be saved, example: `storage`
 
-#### (Optional) `RSTUF_LOCK_TIMEOUT`
-
-Timeout for publishing JSON metadata files. Default: 60.0 (seconds)
-
-This timeout avoids race conditions leading to publishing JSON metadata files by multiple
-Worker's services. It guarantees that the metadata is consistent in the backend
-storage service (`RSTUF_STORAGE_BACKEND`).
-
-
-In most use cases, the timeout of 60.0 seconds is sufficient.
-
 #### (Required) `RSTUF_KEYVAULT_BACKEND`
 
 Select a supported type of Key Vault Service.
@@ -136,7 +125,8 @@ Available types:
     - ``RSTUF_LOCAL_KEYVAULT_TYPE``
       - cryptographic type of the online key, example: `ed25519`.
       - Default: `ed25519`
-      - [Note: At the moment RSTUF Worker supports `ed25519`, `rsa`, `ecdsa`]
+      - [Note: At the moment RSTUF Worker supports only `ed25519`
+
 
 #### (Optional) `RSTUF_WORKER_ID`
 
@@ -146,14 +136,13 @@ Custom Worker ID.  Default: `hostname` (Container hostname)
 
 Container data directory. Default: `/data`
 
-
 ### Persistent data
 
 * `$DATA_DIR`. Default: `/data`
 
 ### Customization/Tuning
 
-The `repository-service-tuf-worker` uses supervisord and uses a
-`supervisor.conf` from `$DATA_DIR`.
+The `repository-service-tuf-worker` uses supervisord and uses a `supervisor.conf`
+from `$DATA_DIR`.
 
 It can be used to customize/tuning performance of Celery.

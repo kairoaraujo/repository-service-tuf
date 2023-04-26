@@ -3,9 +3,10 @@ Repository Service for TUF Guide
 ================================
 
 .. toctree::
-    :maxdepth: 4
+    :maxdepth: 5
 
     introduction/introduction
+    introduction/processes
     deployment/index
     deployment/importing-targets
     repository-service-tuf-api/index
@@ -13,5 +14,5 @@ Repository Service for TUF Guide
     repository-service-tuf-cli/index
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 5
    :caption: Contents:
