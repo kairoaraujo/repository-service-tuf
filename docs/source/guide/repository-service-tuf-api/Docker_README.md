@@ -38,24 +38,6 @@ docker run -p 80:80 \
 
 ### Environment Variables
 
-#### (Optional) `RSTUF_TOKENS_NODE`
-
-The value type is boolean (true/false [case sensitive](https://www.dynaconf.com/configuration/#available-options)).
-Default: true
-
-Disable the container as a token node.
-
-The container is enabled to be a token node by default, the endpoint `/api/v1/token` is visible and accept connections using token authentication and scopes.
-
-#### (Optional) `RSTUF_BOOTSTRAP_NODE`
-
-The value type is boolean (true/false [case sensitive](https://www.dynaconf.com/configuration/#available-options)).
-Default: false
-
-Enable the container to be a bootstrap node.
-
-If the container is enabled to be a bootstrap node, the endpoint `/api/v1/bootstrap` will be visible and accept connections using token authentication and scope `write:bootstrap`
-
 #### (Required) `RSTUF_BROKER_SERVER`
 
 Broker server address.
@@ -89,27 +71,48 @@ Important: It should use the same db id as used by RSTUF Workers.
 
 #### (Optional) `RSTUF_AUTH`
 
-Disable/Enable RSTUF built-in token authentication. Default: true
+Disable/Enable RSTUF built-in token authentication. Default: false
 
-##### (Required) `SECRETS_RSTUF_TOKEN_KEY`
+* Required variables (when enabled):
+  - `SECRETS_RSTUF_TOKEN_KEY`
+    Secret Token for hash the Tokens.
 
-Secret Token for hash the Tokens.
+  - `SECRETS_RSTUF_ADMIN_PASSWORD`
+    Secret admin password.
 
-This environment variable supports container secrets when the volume is added
-to `/run/secrets` path.
+  These environment variables support container secrets when the volume is added
+  to `/run/secrets` path.
 
-Example:
-`SECRETS_RSTUF_TOKEN_KEY=/run/secrets/SECRETS_RSTUF_TOKEN_KEY`
+  Example:
+  ```
+  SECRETS_RSTUF_ADMIN_PASSWORD=/run/secrets/SECRETS_RSTUF_ADMIN_PASSWORD
+  SECRETS_RSTUF_TOKEN_KEY=/run/secrets/SECRETS_RSTUF_TOKEN_KEY`
+  ```
 
-##### (Required) `SECRETS_RSTUF_ADMIN_PASSWORD`
 
-Secret admin password.
 
-This environment variable supports container secrets when the volume is added
-to `/run/secrets` path.
+#### (Optional) `RSTUF_DISABLED_ENDPOINTS`
 
-Example:
-`SECRETS_RSTUF_ADMIN_PASSWORD=/run/secrets/SECRETS_RSTUF_ADMIN_PASSWORD`
+Disable specific endpoints or endpoint methods from the API.
+
+This variable receives a list separetad by `:`.
+
+You can disable a whole endpoint.
+For example:
+`RSTUF_DISABLED_ENDPOINTS = "/api/v1/targets"`
+Will disable all methods and all paths  related to v1 `targets`:  
+GET `/api/v1/targets`, POST `/api/v1/targets`, POST `/api/v1/targets/publish` etc.
+
+It is possible to disable a specific method endpoint with:
+`{'POST'}/api/v1/targets/publish`.
+
+Note: If you give both
+`RSTUF_DISABLE_ENDPOINTS={'POST'}/api/v1/targets/publish:/api/v1/targets` then
+the `/api/v1/targets` has a higher priority and will disable all v1 targets related endpoints.
+
+A list can be given as shown in the example bellow:
+`RSTUF_DISABLE_ENDPOINTS={'POST'}/api/v1/bootstrap/:/api/v1/metadata/:/api/v1/token/:{'DELETE'}/api/v1/targets/`
+
 
 #### (Optional) `SECRETS_RSTUF_SSL_CERT`
 
@@ -124,8 +127,10 @@ These environment variables supports container secrets when the volume is added
 to `/run/secrets` path.
 
 Example:
-`SECRETS_RSTUF_SSL_CERT=/run/secrets/SECRETS_RSTUF_SSL_CERT`
-`SECRETS_RSTUF_SSL_KEY=/run/secrets/SECRETS_RSTUF_SSL_KEY`
+```
+SECRETS_RSTUF_SSL_CERT=/run/secrets/SECRETS_RSTUF_SSL_CERT
+SECRETS_RSTUF_SSL_KEY=/run/secrets/SECRETS_RSTUF_SSL_KEY
+```
 
 #### (Optional) `DATA_DIR`
 

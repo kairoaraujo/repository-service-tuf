@@ -73,13 +73,30 @@ Example: `redis://redis`
 
 #### (Required) `RSTUF_SQL_SERVER`
 
-SQL server address.
+RSTUF requires [PostgreSQL](https://www.postgresql.org).
 
-The SQL Server must to be compatible with
-[SQLAlchemy](https://www.sqlalchemy.org). RSTUF recomends
-[PostgreSQL](https://www.postgresql.org).
+Example: `postgres:secret@postgres:5432`
 
-Example: `postgresql://postgres:secret@postgres:5432`
+* Optional variables:
+
+  * `RSTUF_SQL_USER` optional information about the user name
+
+    If using this optional variable:
+    - Do not include the user in the `RSTUF_SQL_SERVER`.
+    - The `RSTUF_SQL_PASSWORD` becomes required
+
+  * `RSTUF_SQL_PASSWORD` use this variable to provide the password separately.
+    - Do not include the password in the `RSTUF_SQL_SERVER`
+    - This environment variable supports container secrets when the `/run/secrets`
+      volume is added to the path.
+
+  Example:
+  ```
+  RSTUF_SQL_SERVER=sqlserver:5432
+  RSTUF_SQL_USER=postgres
+  RSTUF_SQL_PASSWORD=/run/secrets/POSTGRES_PASSWORD
+  ```
+
 
 #### (Optional) `RSTUF_REDIS_SERVER_PORT`
 
@@ -129,6 +146,9 @@ Available types:
   - Required variables:
     - ``RSTUF_LOCAL_KEYVAULT_PASSWORD``
       - password used to load the online key
+      - This environment variable supports container secrets when the `/run/secrets`
+        volume is added to the path.
+        Example: `RSTUF_LOCAL_KEYVAULT_PASSWORD=/run/secrets/ONLINE_KEY_PASSWORD`
   - Optional variables:
     - ``RSTUF_LOCAL_KEYVAULT_PATH``
       - file name of the online key
