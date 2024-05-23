@@ -13,17 +13,17 @@ Slack channel
 =============
 
 `#repository-service-for-tuf <https://openssf.slack.com/archives/C052QF5CZFH>`_
-channel on `OpenSSF Slack <https://openssf.slack.com/>`_.
+channel on `OpenSSF Slack <http://slack.openssf.org/>`_.
 
 
 Meetings
 ========
 
-* `RSTUF Community Meetings at OpenSSF Calendar <https://calendar.google.com/calendar/u/0?cid=czYzdm9lZmhwNWk5cGZsdGI1cTY3bmdwZXNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ>`_
+* `RSTUF Community Meetings at OpenSSF Calendar <https://zoom-lfx.platform.linuxfoundation.org/meetings/repository-service-tuf>`_
 
-  - `Community Meetings <https://docs.google.com/document/d/13a_AtFpPK9WO4PlAN6ciD-G1jiBU3gEDtRD1OUinUFY>`_
+  - `Community Meetings Notes <https://hackmd.io/sSB1pwpDR5Seag0YB-vYMA>`_
 
-  - Sprint Planning Meetings (Every 2 weeks, see the `public calendar <https://calendar.google.com/calendar/u/0?cid=Y19hYWFjYjc2M2NkNTliNWJhOWUyYmY4N2U1MTJhM2Q4ZjEyYjkxNmFmYzdhOWM4YjQxMmZmNjcwZWYzNmFiOTdlQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20>`_)
+  - Sprint Planning Meetings (Every 2 weeks, see the `public calendar <https://zoom-lfx.platform.linuxfoundation.org/meetings/repository-service-tuf>`_)
 
 
 RSTUF mailing list

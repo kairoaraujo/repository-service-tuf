@@ -94,24 +94,31 @@ Posts
 Mentions
 ========
 
-* `"Open Source Summit EU 2023: at OpenSSF day Omkhar Arasaratnam, OpenSSF General Manager, mentions
-  Repository Service for TUF" <https://youtu.be/WWY6SWaYhxI?si=bT34fgeQquWWh8ga>`_
+* KubeCon 2024 EU:
 
-    :align: center
+  - `Operating a Production TUF Repository <https://www.youtube.com/watch?v=WB83-RhMl18&t=899s>`_  Kairo De Araujo, TestifySec & Fredrik Skogman, Github
 
+  - SECURITY HUB | Unconference: DEMO: `Unconference: DEMO: Archivista using TUF to store Policy &
+    building trust on verifying in-toto Attestations <https://www.youtube.com/watch?v=camLVqnVel8>`_
 
+* PackagingCon 2023: `“Our stuff” - how to protect users from package compromise with RSTUF <https://www.youtube.com/live/mYzqeS2d96A?si=cqQUH5J5wDPrOQFb&t=3801>`_
+
+* EuroPython 2023: `“PEP 458 a solution not only for PyPI” <https://www.youtube.com/watch?v=8pnOpfvhT9o>`_
+
+* Open Source Summit EU 2023: at OpenSSF day Omkhar Arasaratnam, OpenSSF General Manager, mentions
+  `Repository Service for TUF <https://youtu.be/WWY6SWaYhxI?si=bT34fgeQquWWh8ga>`_"
 
 * KubeCon 2023: `"Maintaining TUF, a Talk" <https://www.youtube.com/watch?v=1rM8a9cPo-I>`_
   by Joshua Lock and Lukas Pühringer
 
-  - `RSTUF part start at 23:41 <https://youtu.be/1rM8a9cPo-I?si=aSFHqTpGvs_YUWp0&t=1421>`_.
+  - `RSTUF part start at 23:41 <https://youtu.be/1rM8a9cPo-I?si=aSFHqTpGvs_YUWp0&t=1421>`_
 
-* KubeCon 2023: `CNCF Graduated Project Updates, TUF mentions the RSTUF Project <https://youtu.be/yit0zu8g_O4?si=jgdhCbMVlLK1EBMa&t=363>`_.
+* KubeCon 2023: `CNCF Graduated Project Updates, TUF mentions the RSTUF Project <https://youtu.be/yit0zu8g_O4?si=jgdhCbMVlLK1EBMa&t=363>`_
 
 * Open Source Summit NA 2023 : `Toto-Ally TUF: Simple Tools for a Secure Software Supply Chain <https://www.youtube.com/watch?v=O8zs4NnSR5w>`_
   by Marina Moore & Aditya Sirish A Yelgundhalli
 
-  - `The demo uses RSTUF deployed as mentioned here <https://youtu.be/O8zs4NnSR5w?si=dWvk8SwL-fhVT7y7&t=740>`_.
+  - `The demo uses RSTUF deployed as mentioned here <https://youtu.be/O8zs4NnSR5w?si=dWvk8SwL-fhVT7y7&t=740>`_
 
 Background and motivation
 =========================
